@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="hu" class="bg-[#0a0a0a] text-stone-100">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <!-- PAGE TITLE -->
+    <title>VANTAGE</title>
+    
+    <!-- FAVICONS -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./icon/favicon.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="./icon/favicon.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="./icon/favicon.jpg">
+    <link rel="icon" type="image/x-icon" href="./icon/favicon.jpg">
+
+    <!-- TAILWIND CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- TAILWIND CONFIG JS -->
+    <script src="js/tailwind-config.js"></script>
+
+</head>
+
+<body class="min-h-screen selection:bg-gold-500/30 selection:text-white antialiased">
+
+    <!-- ANIMATED STARS BACKGROUND -->
+    <div id="stars-container"></div>
+
+    <div id="content-wrapper" class="min-h-screen flex flex-col">
+
+        <!-- HEADER SECTION -->
+        <header class="px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 lg:pt-20 pb-3 sm:pb-4">
+            <div class="max-w-7xl mx-auto text-center">
+
+                <!-- HEADER TEXT AND LOGO -->
+                <div class="animate-slideDown" style="animation-delay: 0.1s; opacity: 0;">
+                    
+                    <!-- ESTABLISHMENT YEAR -->
+                    <p class="text-[9px] sm:text-[10px] uppercase tracking-[0.5em] sm:tracking-[0.6em] text-gold-400/60 mb-2 sm:mb-3 font-sans font-light">
+                        Est. 2025
+                    </p>
+
+                    <!-- MAIN TITLE -->
+                    <h1 class="luxury-gradient text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-display font-bold mb-3 sm:mb-4 tracking-tight leading-none">
+                        VANTAGE
+                    </h1>
+
+                    <!-- DECORATIVE LINE -->
+                    <div class="h-px w-20 sm:w-28 bg-gradient-to-r from-transparent via-gold-500/50 to-transparent mx-auto mb-3 sm:mb-4"></div>
+
+                    <!-- SUBTITLE -->
+                    <p class="font-sans font-light text-stone-500 text-[10px] sm:text-xs md:text-sm tracking-[0.4em] sm:tracking-[0.5em] uppercase">
+                        Game Archives
+                    </p>
+
+                </div>
+
+                <!-- SEARCH BUTTON -->
+                <div class="mt-6 sm:mt-7 animate-slideUp" style="animation-delay: 0.3s; opacity: 0;">
+                    <button 
+                        onclick="openSearchModal()"
+                        class="group relative inline-flex items-center justify-center gap-2.5 px-8 py-3.5 sm:px-10 sm:py-4 bg-transparent border border-gold-500/40 text-gold-300 rounded-full transition-all duration-500 hover:border-gold-400 hover:text-gold-200 hover:shadow-[0_0_30px_rgba(197,160,89,0.2)] font-sans font-light text-xs sm:text-sm overflow-hidden active:scale-95"
+                    >
+                        <!-- SEARCH ICON -->
+                        <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5 relative z-10 transition-transform duration-500 group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        
+                        <!-- BUTTON TEXT -->
+                        <span class="relative z-10 uppercase tracking-[0.3em] text-[10px] sm:text-xs">Search</span>
+
+                        <!-- HOVER EFFECT -->
+                        <div class="absolute inset-0 bg-gold-500/0 group-hover:bg-gold-500/10 transition-all duration-500 rounded-full"></div>
+                    </button>
+                </div>
+
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT SECTION -->
+        <main class="flex-1 px-4 sm:px-6 lg:px-8 py-5 sm:py-6 lg:py-8" style="padding-top: 0px;">
+            <div class="max-w-5xl mx-auto">
+
+                <!-- TAB BUTTONS -->
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-10 animate-slideUp" style="animation-delay: 0.5s; opacity: 0;">
+
+                    <!-- TABS CONTAINER -->
+                    <div class="flex gap-0 border-b border-gold-500/10 w-full sm:w-auto">
+
+                        <!-- COMPLETED TAB BUTTON -->
+                        <button 
+                            id="tabCompleted"
+                            onclick="switchTab('completed')"
+                            class="tab-button active relative flex-1 sm:flex-initial px-8 sm:px-10 py-4 sm:py-5 font-display text-base sm:text-lg md:text-xl transition-all duration-500 text-gold-200"
+                        >
+                            <span class="relative z-10">Completed</span>
+                        </button>
+
+                        <!-- WISHLIST TAB BUTTON -->
+                        <button 
+                            id="tabWishlist"
+                            onclick="switchTab('wishlist')"
+                            class="tab-button relative flex-1 sm:flex-initial px-8 sm:px-10 py-4 sm:py-5 font-display text-base sm:text-lg md:text-xl transition-all duration-500 text-stone-600"
+                        >
+                            <span class="relative z-10">Wishlist</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- TAB CONTENT -->
+                <div class="relative">
+
+                    <!-- COMPLETED TAB CONTENT -->
+                    <div id="contentCompleted" class="tab-content active animate-slideUp" style="animation-delay: 0.7s; opacity: 0;">
+                        <div class="glass-light rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 min-h-[450px]">
+                            <div id="playedList"></div>
+                        </div>
+                    </div>
+
+                    <!-- WISHLIST TAB CONTENT -->
+                    <div id="contentWishlist" class="tab-content hidden animate-slideUp" style="animation-delay: 0.7s; opacity: 0;">
+                        <div class="glass-light rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 min-h-[450px]">
+                            <div id="toPlayList"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER SECTION -->
+        <footer class="px-4 sm:px-6 lg:px-8 py-6 sm:py-10 text-center">
+
+            <!-- DECORATIVE LINE -->
+            <div class="h-px w-full max-w-xs mx-auto bg-gradient-to-r from-transparent via-gold-500/15 to-transparent mb-3 sm:mb-4"></div>
+
+            <!-- COPYRIGHT TEXT -->
+            <p class="text-stone-700 text-[10px] sm:text-xs font-sans tracking-[0.3em] uppercase">© 2025 VANTAGE</p>
+
+        </footer>
+
+    </div>
+
+    <!-- SEARCH MODAL -->
+    <div id="searchModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 animate-fadeIn" style="background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(12px);">
+
+        <!-- MODAL CONTAINER -->
+        <div class="glass-effect w-full max-w-6xl rounded-2xl sm:rounded-3xl animate-scaleIn overflow-hidden shadow-[0_25px_100px_rgba(0,0,0,0.9)]">
+
+            <!-- MODAL HEADER -->
+            <div class="px-4 sm:px-6 lg:px-8 py-5 sm:py-7 border-b border-gold-500/20">
+                <div class="flex flex-col gap-3 sm:gap-0 sm:flex-row sm:items-center">
+
+                    <!-- SEARCH INPUT -->
+                    <div class="flex items-center gap-3 sm:gap-5 flex-1">
+                        <svg class="w-6 h-6 sm:w-7 sm:h-7 text-gold-400/60 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search games..."
+                            onkeypress="if(event.key === 'Enter') searchGamesInModal()"
+                            class="flex-1 px-0 py-2 sm:py-2.5 bg-transparent text-stone-100 placeholder-stone-700/60 focus:outline-none text-lg sm:text-xl font-display italic border-b border-gold-500/20 focus:border-gold-500/50 transition-all duration-500 w-full"
+                        />
+                    </div>
+
+                    <!-- SEARCH BUTTON -->
+                    <button
+                        onclick="searchGamesInModal()"
+                        class="w-full sm:w-auto sm:ml-4 px-6 sm:px-7 py-2.5 sm:py-2.5 border border-gold-500/40 text-gold-300 hover:border-gold-400 hover:bg-gold-500/10 rounded-lg transition-all duration-300 uppercase text-[10px] tracking-[0.3em] font-sans font-light hover:scale-105 active:scale-95"
+                    >
+                        Search
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- MODAL BODY -->
+            <div id="searchResults" class="p-4 sm:p-5 lg:p-7 max-h-[65vh] sm:max-h-[68vh] overflow-y-auto custom-scrollbar">
+                <div class="text-center py-16 sm:py-20">
+                    <svg class="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-5 text-gold-500/15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <p class="text-stone-700 font-display italic tracking-wide text-sm sm:text-base">Begin your search...</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MAIN JS -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
